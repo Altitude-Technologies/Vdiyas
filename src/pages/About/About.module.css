@@ -1,0 +1,590 @@
+/* ═══════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════ */
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ═══════════════════════════════════
+   PAGE HEADER
+   ═══════════════════════════════════ */
+
+.pageHeader {
+  position: relative;
+  margin-top: 0;
+  padding: 180px 20px 90px;
+  text-align: center;
+  overflow: hidden;
+  background: #04010c;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(59, 18, 114, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, rgba(107, 33, 168, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 60%, rgba(200, 150, 46, 0.08) 0%, transparent 40%);
+}
+
+/* Decorative circle top-left */
+.pageHeader::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 150, 46, 0.1);
+  pointer-events: none;
+}
+
+/* Decorative circle bottom-right */
+.pageHeader::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(107, 33, 168, 0.1);
+  pointer-events: none;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.headerTag {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #C8962E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  background: rgba(200, 150, 46, 0.08);
+  border: 1px solid rgba(200, 150, 46, 0.15);
+  padding: 6px 20px;
+  border-radius: 24px;
+}
+
+.pageHeader h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
+}
+
+.headerSub {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* Bottom gold accent bar */
+.headerAccent {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8962E, #6B21A8);
+  border-radius: 4px;
+  margin: 28px auto 0;
+}
+
+/* ── Animated stars ── */
+.stars,
+.stars2 {
+  position: absolute;
+  inset: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.stars {
+  box-shadow:
+    30px 25px #fff, 150px 60px rgba(255,255,255,0.7), 280px 20px #fff,
+    420px 70px rgba(255,255,255,0.6), 560px 40px #fff, 700px 80px rgba(255,255,255,0.8),
+    840px 30px #fff, 980px 65px rgba(255,255,255,0.5), 1100px 45px #fff,
+    1250px 75px rgba(255,255,255,0.7), 1380px 35px #fff,
+    80px 120px rgba(255,255,255,0.6), 220px 150px #fff, 370px 130px rgba(255,255,255,0.5),
+    510px 160px #fff, 660px 140px rgba(255,255,255,0.8), 800px 170px #fff,
+    950px 125px rgba(255,255,255,0.6), 1080px 155px #fff, 1220px 135px rgba(255,255,255,0.7),
+    1350px 165px #fff, 50px 210px #fff, 200px 240px rgba(255,255,255,0.5),
+    340px 220px #fff, 490px 250px rgba(255,255,255,0.8), 640px 230px #fff,
+    770px 260px rgba(255,255,255,0.6), 920px 215px #fff, 1060px 245px rgba(255,255,255,0.7),
+    1200px 225px #fff, 1340px 255px rgba(255,255,255,0.5);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars2 {
+  width: 1px;
+  height: 1px;
+  box-shadow:
+    100px 35px rgba(255,255,255,0.3), 250px 85px rgba(255,255,255,0.25),
+    400px 50px rgba(255,255,255,0.35), 550px 95px rgba(255,255,255,0.25),
+    700px 55px rgba(255,255,255,0.3), 850px 100px rgba(255,255,255,0.25),
+    1000px 40px rgba(255,255,255,0.35), 1150px 90px rgba(255,255,255,0.25),
+    1300px 60px rgba(255,255,255,0.3),
+    60px 175px rgba(255,255,255,0.25), 210px 195px rgba(255,255,255,0.3),
+    360px 180px rgba(255,255,255,0.25), 520px 200px rgba(255,255,255,0.35),
+    670px 185px rgba(255,255,255,0.25), 820px 205px rgba(255,255,255,0.3),
+    970px 175px rgba(255,255,255,0.25), 1120px 195px rgba(255,255,255,0.35),
+    1270px 180px rgba(255,255,255,0.25);
+  animation: twinkle 5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+/* ═══════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════ */
+
+.sectionWhite { padding: 90px 20px; background: #fff; }
+.sectionLight { padding: 90px 20px; background: #FAF8FF; }
+
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* ── Labels & Headings ── */
+.label {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #C8962E;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.labelLight {
+  composes: label;
+  color: rgba(200, 150, 46, 0.9);
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3B1272;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.headingCenter {
+  composes: heading;
+  text-align: center;
+}
+
+.headingLight {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.accentLine {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8962E, #6B21A8);
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.accentLineCenter {
+  composes: accentLine;
+  margin: 0 auto 32px;
+}
+
+.text {
+  font-family: "Poppins", sans-serif;
+  color: #4B5563;
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.textCenter {
+  composes: text;
+  text-align: center;
+  max-width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centerBlock {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════
+   ABOUT INSTITUTE — Two column
+   ═══════════════════════════════════ */
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.colLeft {
+  position: sticky;
+  top: 100px;
+}
+
+/* ═══════════════════════════════════
+   FOUNDER
+   ═══════════════════════════════════ */
+
+.founderSection {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.founderLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 100px;
+}
+
+.founderImageWrap {
+  position: relative;
+}
+
+.founderImg {
+  width: 260px;
+  height: 320px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(59, 18, 114, 0.12);
+  border: 3px solid rgba(200, 150, 46, 0.2);
+  transition: all 0.4s ease;
+}
+
+.founderImg:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(59, 18, 114, 0.16);
+  border-color: rgba(200, 150, 46, 0.4);
+}
+
+.founderMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.metaItem {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6B21A8;
+  background: #F3EDFF;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+.founderRight {
+  min-width: 0;
+}
+
+/* Expertise mini-cards */
+.expertiseCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.expertiseCard {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid #f0ecf5;
+  transition: all 0.25s ease;
+}
+
+.expertiseCard:hover {
+  border-color: rgba(200, 150, 46, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 18, 114, 0.08);
+}
+
+.expertiseCard h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #3B1272;
+  margin-bottom: 6px;
+}
+
+.expertiseCard p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════
+   TEACHING PHILOSOPHY — 3 pillars
+   ═══════════════════════════════════ */
+
+.pillarRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.pillarCard {
+  background: #FAF8FF;
+  border-radius: 14px;
+  padding: 32px 28px;
+  text-align: center;
+  border: 1px solid #ece8f3;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pillarCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(59, 18, 114, 0.08);
+  border-color: rgba(200, 150, 46, 0.2);
+}
+
+.pillarNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #C8962E;
+  display: block;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
+.pillarTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3B1272;
+  margin-bottom: 10px;
+}
+
+.pillarDesc {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #4B5563;
+  line-height: 1.65;
+}
+
+/* ═══════════════════════════════════
+   VISION BANNER
+   ═══════════════════════════════════ */
+
+.visionBanner {
+  background: linear-gradient(135deg, #2D0E54, #1E0A3C);
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.visionText {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.9;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════
+   MISSION TIMELINE
+   ═══════════════════════════════════ */
+
+.missionTimeline {
+  position: relative;
+  max-width: 800px;
+  margin: 24px auto 40px;
+  padding: 0 20px;
+}
+
+/* Center line */
+.missionTimeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #C8962E, #6B21A8);
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  position: relative;
+  width: 50%;
+}
+
+.timelineLeft {
+  padding-right: 40px;
+  text-align: right;
+  margin-left: 0;
+}
+
+.timelineRight {
+  padding-left: 40px;
+  margin-left: 50%;
+}
+
+.timelineDot {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C8962E, #D4A017);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.timelineDot span {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.timelineLeft .timelineDot {
+  right: -17px;
+  top: 4px;
+}
+
+.timelineRight .timelineDot {
+  left: -17px;
+  top: 4px;
+}
+
+.timelineContent {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 12px rgba(59, 18, 114, 0.05);
+  border: 1px solid #f0ecf5;
+  transition: all 0.25s ease;
+}
+
+.timelineContent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 18, 114, 0.08);
+  border-color: rgba(200, 150, 46, 0.15);
+}
+
+.timelineContent p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.93rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.missionClose {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #3B1272;
+  text-align: center;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .colLeft {
+    position: static;
+    text-align: center;
+  }
+
+  .colLeft .accentLine {
+    margin: 0 auto 24px;
+  }
+
+  .founderSection {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .founderLeft {
+    position: static;
+  }
+
+  .expertiseCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader { padding: 80px 20px 60px; }
+  .pageHeader h1 { font-size: 2.2rem; }
+  .heading, .headingCenter, .headingLight { font-size: 1.8rem; }
+
+  .pillarRow {
+    grid-template-columns: 1fr;
+  }
+
+  /* Timeline to single column */
+  .missionTimeline::before {
+    left: 17px;
+  }
+
+  .timelineItem {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 52px;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timelineLeft,
+  .timelineRight {
+    padding-left: 52px;
+    padding-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .timelineLeft .timelineDot,
+  .timelineRight .timelineDot {
+    left: 0;
+    right: auto;
+    top: 4px;
+  }
+
+  .sectionWhite, .sectionLight { padding: 60px 20px; }
+  .visionBanner { padding: 60px 20px; }
+}

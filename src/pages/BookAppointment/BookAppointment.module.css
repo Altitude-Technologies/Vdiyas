@@ -1,0 +1,518 @@
+/* ═══════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════ */
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ═══════════════════════════════════
+   PAGE HEADER
+   ═══════════════════════════════════ */
+
+.pageHeader {
+  position: relative;
+  margin-top: 0;
+  padding: 180px 20px 90px;
+  text-align: center;
+  overflow: hidden;
+  background: #04010c;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(59, 18, 114, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, rgba(107, 33, 168, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 60%, rgba(200, 150, 46, 0.08) 0%, transparent 40%);
+}
+
+.pageHeader::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 150, 46, 0.1);
+  pointer-events: none;
+}
+
+.pageHeader::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(107, 33, 168, 0.1);
+  pointer-events: none;
+}
+
+.stars, .stars2 {
+  position: absolute;
+  inset: 0;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.stars {
+  box-shadow:
+    30px 25px #fff, 150px 60px rgba(255,255,255,0.7), 280px 20px #fff,
+    420px 70px rgba(255,255,255,0.6), 560px 40px #fff, 700px 80px rgba(255,255,255,0.8),
+    840px 30px #fff, 980px 65px rgba(255,255,255,0.5), 1100px 45px #fff,
+    1250px 75px rgba(255,255,255,0.7), 80px 120px rgba(255,255,255,0.6),
+    220px 150px #fff, 370px 130px rgba(255,255,255,0.5), 510px 160px #fff,
+    660px 140px rgba(255,255,255,0.8), 800px 170px #fff,
+    50px 210px #fff, 340px 220px #fff, 640px 230px #fff;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.stars2 {
+  width: 1px;
+  height: 1px;
+  box-shadow:
+    100px 35px rgba(255,255,255,0.3), 250px 85px rgba(255,255,255,0.25),
+    400px 50px rgba(255,255,255,0.35), 550px 95px rgba(255,255,255,0.25),
+    700px 55px rgba(255,255,255,0.3), 850px 100px rgba(255,255,255,0.25),
+    1000px 40px rgba(255,255,255,0.35), 60px 175px rgba(255,255,255,0.25),
+    360px 180px rgba(255,255,255,0.25), 670px 185px rgba(255,255,255,0.25);
+  animation: twinkle 5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+.headerTag {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #C8962E;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  background: rgba(200, 150, 46, 0.08);
+  border: 1px solid rgba(200, 150, 46, 0.15);
+  padding: 6px 20px;
+  border-radius: 24px;
+}
+
+.pageHeader h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.headerSub {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+}
+
+.headerAccent {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8962E, #6B21A8);
+  border-radius: 4px;
+  margin: 28px auto 0;
+}
+
+/* ═══════════════════════════════════
+   LAYOUT HELPERS
+   ═══════════════════════════════════ */
+
+.sectionWhite { padding: 90px 20px; background: #fff; }
+.sectionLight { padding: 90px 20px; background: #FAF8FF; }
+.container { max-width: 1100px; margin: 0 auto; }
+.centerBlock { text-align: center; margin-bottom: 12px; }
+
+.label {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #C8962E;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3B1272;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.dividerCenter {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8962E, #6B21A8);
+  border-radius: 4px;
+  margin: 0 auto 40px;
+}
+
+.accentLine {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8962E, #6B21A8);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* ═══════════════════════════════════
+   INFO GRID — Unique + Guidance
+   ═══════════════════════════════════ */
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.infoCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #ede9f3;
+  transition: all 0.3s ease;
+}
+
+.infoCard:hover {
+  box-shadow: 0 8px 28px rgba(59, 18, 114, 0.07);
+  border-color: rgba(200, 150, 46, 0.15);
+}
+
+.cardLabel {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #C8962E;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cardHeading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3B1272;
+  margin-bottom: 12px;
+}
+
+.checkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.93rem;
+  color: #374151;
+}
+
+.checkIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C8962E, #D4A017);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.guidanceList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.guidanceItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.93rem;
+  color: #374151;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.guidanceItem:hover {
+  background: rgba(200, 150, 46, 0.04);
+}
+
+.guidanceIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════
+   STEPS
+   ═══════════════════════════════════ */
+
+.stepsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stepCard {
+  background: #FAF8FF;
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid #ede9f3;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(59, 18, 114, 0.08);
+  border-color: rgba(200, 150, 46, 0.2);
+}
+
+.stepNumWrap {
+  margin-bottom: 14px;
+}
+
+.stepNum {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #C8962E;
+  opacity: 0.6;
+}
+
+.stepTitle {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3B1272;
+  margin-bottom: 6px;
+}
+
+.stepDesc {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.82rem;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.stepArrow {
+  display: none;
+}
+
+/* ═══════════════════════════════════
+   FORM SECTION
+   ═══════════════════════════════════ */
+
+.formSection {
+  padding: 90px 20px;
+  background: linear-gradient(180deg, #fff 0%, #FAF8FF 100%);
+}
+
+.formLayout {
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Left info */
+.formInfo {
+  position: sticky;
+  top: 100px;
+}
+
+.labelLight {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #C8962E;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.formInfoHeading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3B1272;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.accentLineLight {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #C8962E, #6B21A8);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.formInfoText {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #4B5563;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.formFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formFeature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  color: #374151;
+}
+
+.featureDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C8962E;
+  flex-shrink: 0;
+}
+
+/* Right form card */
+.formCard {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 24px rgba(59, 18, 114, 0.07);
+  border: 1px solid #ede9f3;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 11px 14px;
+  border: 1px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-family: "Poppins", sans-serif;
+  color: #374151;
+  transition: border-color 0.2s;
+  width: 100%;
+  background: #fff;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #6B21A8;
+  box-shadow: 0 0 0 3px rgba(107, 33, 168, 0.08);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #C8962E, #D4A017);
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Poppins", sans-serif;
+  margin-top: 4px;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 150, 46, 0.3);
+}
+
+/* ═══════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .infoGrid { grid-template-columns: 1fr; }
+  .formLayout { grid-template-columns: 1fr; }
+  .formInfo { position: static; }
+}
+
+@media (max-width: 768px) {
+  .pageHeader { padding: 80px 20px 60px; }
+  .pageHeader h1 { font-size: 2.2rem; }
+  .heading { font-size: 1.8rem; }
+  .stepsRow { grid-template-columns: 1fr 1fr; }
+  .formRow { grid-template-columns: 1fr; }
+  .formCard { padding: 28px; }
+  .sectionWhite, .sectionLight, .formSection { padding: 60px 20px; }
+  .formInfoHeading { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .pageHeader h1 { font-size: 1.8rem; }
+  .stepsRow { grid-template-columns: 1fr; }
+}

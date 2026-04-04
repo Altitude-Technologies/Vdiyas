@@ -1,0 +1,148 @@
+.footer {
+  background: linear-gradient(180deg, #1a0730, #0e0418);
+  color: #d1d5db;
+  padding-top: 60px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.brandColumn {
+  text-align: left;
+}
+
+.brand {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.footerLogo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #E8A832;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: #E8A832;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  opacity: 0.8;
+}
+
+.subHeading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #E8A832;
+  margin-bottom: 16px;
+}
+
+.text {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #b8a9cc;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linkList a {
+  font-family: "Poppins", sans-serif;
+  color: #b8a9cc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.linkList a:hover {
+  color: #E8A832;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+
+.icon {
+  margin-right: 8px;
+  color: #E8A832;
+}
+
+.bottom {
+  margin-top: 48px;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(232, 168, 50, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.credit {
+  color: #6b7280;
+}
+
+.creditLink {
+  color: #E8A832;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.creditLink:hover {
+  color: #F5C563;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}

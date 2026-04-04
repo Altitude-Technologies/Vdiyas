@@ -1,0 +1,252 @@
+/* ═══════════════════════════════════
+   NAVBAR — transparent → solid on scroll
+   ═══════════════════════════════════ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 10px 0;
+  background: transparent;
+  transition: all 0.35s ease;
+}
+
+.navbar.scrolled {
+  padding: 10px 0;
+  background: rgba(10, 4, 22, 0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+
+/* ── Logo — centered between navs ── */
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  z-index: 11;
+  margin: 0 28px;
+}
+
+.logoImg {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2.5px solid rgba(200, 150, 46, 0.35);
+  box-shadow: 0 4px 20px rgba(200, 150, 46, 0.2);
+  transition: all 0.3s ease;
+}
+
+.logoImg:hover {
+  border-color: #C8962E;
+  box-shadow: 0 6px 28px rgba(200, 150, 46, 0.4);
+  transform: scale(1.06);
+}
+
+/* ── Nav Links — left & right split, equal width ── */
+.navLeft,
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.navLeft {
+  justify-content: flex-end;
+}
+
+.navRight {
+  justify-content: flex-start;
+}
+
+.navItem {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.navItem::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #C8962E, #E8C76A);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.navItem:hover {
+  color: #fff;
+}
+
+.navItem:hover::after {
+  width: 20px;
+}
+
+.navItem.active {
+  color: #E8C76A;
+}
+
+.navItem.active::after {
+  width: 20px;
+}
+
+/* ── CTA Button ── */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #C8962E, #D4A017);
+  color: #fff !important;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(200, 150, 46, 0.35);
+}
+
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 11;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburgerActive span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburgerActive span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerActive span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ═══════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .container {
+    padding: 0 24px;
+    height: 74px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .hamburger {
+    display: flex;
+    position: absolute;
+    right: 24px;
+  }
+
+  .navLeft,
+  .navRight {
+    display: none;
+    position: fixed;
+    top: 74px;
+    left: 0;
+    right: 0;
+    background: rgba(10, 4, 22, 0.97);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 24px 32px;
+    z-index: 10;
+    flex: unset;
+    justify-content: center;
+  }
+
+  .navLeft.open {
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 12px;
+  }
+
+  .navRight.open {
+    display: flex;
+    top: auto;
+    position: static;
+    padding-top: 12px;
+  }
+
+  /* Wrap both lists in a single dropdown */
+  .navLeft.open ~ .navRight.open {
+    position: fixed;
+    top: auto;
+  }
+
+  .navItem {
+    font-size: 1.05rem;
+    padding: 12px 24px;
+  }
+
+  .logoImg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logoLink {
+    margin: 0;
+  }
+
+  .ctaBtn {
+    margin-top: 8px;
+    padding: 12px 32px;
+    font-size: 0.88rem;
+    width: 100%;
+  }
+}
