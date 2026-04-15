@@ -245,7 +245,7 @@
 
 .heroDesc {
   font-family: "Poppins", sans-serif;
-  font-size: 1.05rem; color: rgba(255,255,255,0.5);
+  font-size: 1.05rem; color: #fff;
   line-height: 1.8; max-width: 520px;
   margin: 0 auto 40px;
   opacity: 0; animation: fadeUp 0.7s ease forwards 0.9s;
@@ -760,10 +760,29 @@
 }
 
 @media (max-width: 480px) {
+  .hero { padding: 80px 16px 70px; }
   .heroTitle { font-size: 2.2rem; }
   .heroBadge { font-size: 0.55rem; padding: 6px 14px; }
-  .heroDesc { font-size: 0.92rem; }
-  .statItem { padding: 14px 16px; }
-  .statNum { font-size: 1.3rem; }
+  .heroDesc { font-size: 0.88rem; max-width: 100%; }
+  .heroActions { flex-direction: column; width: 100%; }
+  .btnPrimary, .btnGhost { width: 100%; justify-content: center; }
+  .statItem { flex: 1 1 45%; padding: 14px 12px; }
+  .statNum { font-size: 1.2rem; }
+  .statLabel { font-size: 0.52rem; }
   .aboutBento { grid-template-columns: 1fr; }
+  .section, .sectionAlt, .sectionDark { padding: 60px 16px; }
+  .heading, .headingLight { font-size: 1.7rem; }
+  .ctaTitle { font-size: 1.5rem; }
+  .ctaSection { padding: 60px 16px; }
+  .founderBody { padding: 20px; }
+  .courseCard { padding: 24px 20px; }
+  .visionCard { padding: 22px 18px; }
+}
+
+@media (max-width: 360px) {
+  .heroTitle { font-size: 1.8rem; }
+  .heroDesc { font-size: 0.82rem; }
+  .heroBadge { font-size: 0.5rem; padding: 5px 10px; letter-spacing: 2px; }
+  .statItem { flex: 1 1 100%; }
+  .heading, .headingLight { font-size: 1.5rem; }
 }

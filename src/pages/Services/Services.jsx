@@ -107,7 +107,11 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/book-appointment" className={styles.serviceLink}>
+                <Link
+                  to="/book-appointment"
+                  state={{ scrollToForm: true, course: service.title }}
+                  className={styles.serviceLink}
+                >
                   Get Started &rarr;
                 </Link>
               </div>
@@ -159,7 +163,7 @@ const Services = () => {
                 Take the first step toward authentic Vedic knowledge and personal transformation.
               </p>
             </div>
-            <Link to="/book-appointment" className={styles.ctaBtn}>Book a Consultation</Link>
+            <Link to="/book-appointment" state={{ scrollToForm: true }} className={styles.ctaBtn}>Book a Consultation</Link>
           </div>
         </div>
       </section>

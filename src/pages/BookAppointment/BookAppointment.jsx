@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import styles from "./BookAppointment.module.css";
 
 const uniquePoints = [
@@ -24,10 +25,23 @@ const steps = [
 ];
 
 const BookAppointment = () => {
+  const location = useLocation();
+  const formRef = useRef(null);
+
   const [form, setForm] = useState({
     name: "", email: "", phone: "", dob: "", tob: "", pob: "",
+    course: location.state?.course || "",
     type: "", preferredDate: "", message: "",
   });
+
+  useEffect(() => {
+    if (location.state?.scrollToForm && formRef.current) {
+      const timer = setTimeout(() => {
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [location.state]);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -118,7 +132,7 @@ const BookAppointment = () => {
       </section>
 
       {/* ── Booking Form ── */}
-      <section className={styles.formSection}>
+      <section ref={formRef} className={styles.formSection}>
         <div className={styles.container}>
           <div className={styles.formLayout}>
 
@@ -170,6 +184,12 @@ const BookAppointment = () => {
                     <input type="text" name="pob" value={form.pob} onChange={handleChange} placeholder="City, State" />
                   </div>
                 </div>
+                {form.course && (
+                  <div className={styles.field}>
+                    <label>Course / Program Interested In</label>
+                    <input type="text" name="course" value={form.course} onChange={handleChange} placeholder="Course name" />
+                  </div>
+                )}
                 <div className={styles.formRow}>
                   <div className={styles.field}>
                     <label>Date of Birth *</label>

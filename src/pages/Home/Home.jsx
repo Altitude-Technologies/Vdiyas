@@ -133,7 +133,7 @@ const Home = () => {
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-            <Link to="/book-appointment" className={styles.btnGhost}>
+            <Link to="/book-appointment" state={{ scrollToForm: true }} className={styles.btnGhost}>
               Book Consultation
             </Link>
           </div>

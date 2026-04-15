@@ -458,8 +458,17 @@
 }
 
 @media (max-width: 480px) {
+  .pageHeader { padding: 70px 16px 50px; }
   .pageHeader h1 { font-size: 1.8rem; }
+  .heading { font-size: 1.5rem; }
   .whyGrid { grid-template-columns: 1fr; }
+  .sectionWhite, .sectionLight { padding: 48px 16px; }
   .cardLeft { gap: 12px; }
   .cardIcon { width: 40px; height: 40px; font-size: 1.1rem; }
+  .cardHeader { padding: 14px 16px; }
+  .cardTitle { font-size: 0.95rem; }
+}
+
+@media (max-width: 360px) {
+  .pageHeader h1 { font-size: 1.5rem; }
 }

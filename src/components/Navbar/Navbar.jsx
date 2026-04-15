@@ -67,7 +67,12 @@ const Navbar = () => {
             </li>
           ))}
           <li>
-            <Link to="/book-appointment" className={styles.ctaBtn} onClick={closeMenu}>
+            <Link
+              to="/book-appointment"
+              state={{ scrollToForm: true }}
+              className={styles.ctaBtn}
+              onClick={closeMenu}
+            >
               Book Consultation
             </Link>
           </li>
@@ -84,6 +89,30 @@ const Navbar = () => {
           <span></span>
         </button>
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {[...leftLinks, ...rightLinks].map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`${styles.mobileItem} ${location.pathname === link.to ? styles.active : ""}`}
+              onClick={closeMenu}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            to="/book-appointment"
+            state={{ scrollToForm: true }}
+            className={styles.ctaBtn}
+            onClick={closeMenu}
+          >
+            Book Consultation
+          </Link>
+        </div>
+      )}
     </nav>
   );
 };

@@ -3,22 +3,75 @@ import styles from "./Testimonials.module.css";
 
 const testimonials = [
   {
-    title: "From Confusion to Clarity",
-    quote: "Before joining, astrology felt complex and confusing. Now I can confidently analyze charts with clarity.",
-    initials: "S K",
-    role: "Astrology Student",
+    title: "A Truly Memorable Experience",
+    initials: "NJ",
+    name: "Neeta Jain",
+    role: "London, UK",
+    paragraphs: [
+      "Roopesh Sir is not only a brilliant astrologer but an amazing human being. His unique way of teaching by connecting the various concepts of astrology with ancient Vedic events and mythological stories makes each class a memorable experience. At the same time he is scientific and challenges regressive thinking with pure logic. He has deep insights while making accurate predictions and is kind and approachable at the same time. I look forward to his institute becoming a pioneer and leader in the field of astrology to benefit many in the future. \uD83E\uDD70\uD83D\uDE4F",
+    ],
   },
   {
-    title: "Practical Mastery",
-    quote: "The teaching approach made everything practical. It's not just learning — it's understanding deeply.",
-    initials: "A R",
-    role: "Advanced Learner",
+    title: "A Transformative Journey",
+    initials: "SU",
+    name: "Sundaram",
+    role: "Malaysia",
+    paragraphs: [
+      "It is with deep respect and heartfelt gratitude that I share my experience of learning Vedic astrology under the guidance of Mr. Roopesh. His depth of knowledge in Jyotish Vidya is truly exceptional, seamlessly blending classical wisdom with a clear and practical approach suited for modern learners.",
+      "Mr. Roopesh embodies the true spirit of a guru \u2014 patient, insightful, and deeply committed to the growth of his students. He has a remarkable ability to simplify even the most intricate concepts. Whether exploring planetary influences, chart interpretations, or karmic patterns, he ensures that every student develops both clarity and confidence. His teaching style nurtures curiosity, reflection, and a deeper appreciation for the sacred science of astrology.",
+      "In his presence, learning becomes not just an intellectual pursuit but a transformative journey.",
+    ],
+    sanskrit: {
+      verse: "\u0938\u0924\u094D\u092F\u0926\u0940\u092A\u0903 \u092A\u094D\u0930\u092C\u0941\u0926\u094D\u0927\u093E\u0924\u094D\u092E\u093E \u091C\u094D\u092F\u094B\u0924\u093F\u0937\u093E\u0902 \u0924\u0924\u094D\u0924\u094D\u0935\u0926\u0930\u094D\u0936\u0915\u0903\u0964\n\u0930\u0942\u092A\u0947\u0936\u0917\u0941\u0930\u0941\u0930\u093F\u0924\u094D\u092F\u0941\u0915\u094D\u0924\u0903 \u0936\u093F\u0937\u094D\u092F\u0939\u0943\u0926\u092F\u0947 \u092A\u094D\u0930\u0915\u093E\u0936\u0915\u0903\u0965",
+      transliteration: "Satyad\u012Bpa\u1E25 prabuddh\u0101tm\u0101 jyoti\u1E63\u0101\u1E41 tattvadar\u015Baka\u1E25\nR\u016Bpe\u015Ba-gurur ity ukta\u1E25 \u015Bi\u1E63ya-h\u1E5Bdaye prak\u0101\u015Baka\u1E25",
+      meaning: "\u201CHe is a lamp of truth, an awakened soul, a seer of the essence of Jyotish; known as Guru Roopesh, he illuminates the hearts of his students.\u201D",
+    },
   },
   {
-    title: "Life Transformation",
-    quote: "The integration of yoga and astrology changed how I see life and myself.",
-    initials: "P M",
-    role: "Yoga & Jyotisha Student",
+    title: "Outstanding and Patient Teacher",
+    initials: "BC",
+    name: "Mahantji Dr. Balliram Chadee",
+    role: "Spiritual Leader, The Hanuman Mission \u2014 Canada",
+    paragraphs: [
+      "Astrology Teacher Roopesh ji, is a wonderful outstanding and patient teacher. He treats his students with respect, attention to detail and thorough care, ensuring full understanding of the lesson, topic and class. He is a kind hearted human being, whose desire is that every student comes to him, leaves better than when they came. I enjoyed taking class with him. It was my pleasure to have met him and his newly wedded wife in Bangalore, on my trip to India in November. Best wishes in your new venture sir.",
+    ],
+  },
+  {
+    title: "Truly Blessed to Have You as My Guru",
+    initials: "AS",
+    name: "Ashwini",
+    role: "Mumbai, India",
+    paragraphs: [
+      "I feel truly blessed to have you as my Guru. You introduced me to the world of astrology \u2014 from planets and houses to understanding their effects on our lives \u2014 and this journey means a lot to me.",
+      "What stands out in your teaching is the clarity and logic behind every concept. You always explained the \u201Cwhy\u201D, which made learning meaningful and easy to remember.",
+      "Your classes created a strong learning environment where we could openly discuss, question, and grow. No question ever felt wrong, and every doubt was addressed with patience and reasoning.",
+      "Despite students being from different places, you connected with each one personally and ensured every query was answered with attention and care.",
+      "The sessions became a valuable part of our routine because they were interactive, insightful, and engaging. Each class added something new, explained with practical examples and thoughtful depth.",
+      "Your way of linking concepts with Sanatan Dharma and mythology made learning even more interesting and impactful.",
+      "Once again, I feel grateful to be your student. \uD83D\uDE4F\u2728",
+    ],
+  },
+  {
+    title: "Bridging Astrology and Psychology",
+    initials: "VA",
+    name: "Varnashree",
+    role: "Bangalore, India",
+    paragraphs: [
+      "Astrology is as vast and deep as the universe itself, yet you have made it simple for us to understand with such clarity and patience. Your method of teaching helps us not only read charts, but truly understand the logic and science behind them, making astrology deeply interesting and easy to absorb.",
+      "Coming from the field of psychology and mental health counseling, I have been able to beautifully connect many astrological principles with my own work and understanding of human behavior because of the way you teach with depth and logic. Your guidance has helped me bridge both sciences in a meaningful way.",
+      "Beyond academics, your teachings and guidance have also helped me understand and resolve many of my own life challenges with greater awareness and clarity. Learning from you has been transformative both professionally and personally.",
+      "Thank you for being not just a teacher, but a true guide. Your institution will undoubtedly shape many sincere students in the years to come.",
+      "Wishing you immense success and abundance in this new journey.",
+    ],
+  },
+  {
+    title: "A Profoundly Positive Impact",
+    initials: "SH",
+    name: "Shruthi",
+    role: "Canada",
+    paragraphs: [
+      "Astro Roopesh sir is an outstanding educator. He is of the opinion that the primary objective of astrology is to assist us in becoming better individuals. His guidance and remedies had a profoundly positive impact on my personal life. I am grateful for his mentorship. I wish him all the best.",
+    ],
   },
 ];
 
@@ -63,11 +116,23 @@ const Testimonials = () => {
                 <div className={styles.cardQuoteMark}>&ldquo;</div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{t.title}</h3>
-                  <p className={styles.cardQuote}>{t.quote}</p>
+                  {t.paragraphs.map((p, j) => (
+                    <p className={styles.cardQuote} key={j}>{p}</p>
+                  ))}
+                  {t.sanskrit && (
+                    <div className={styles.sanskritBlock}>
+                      <p className={styles.sanskritVerse}>{t.sanskrit.verse}</p>
+                      <p className={styles.sanskritTranslit}>{t.sanskrit.transliteration}</p>
+                      <p className={styles.sanskritMeaning}>{t.sanskrit.meaning}</p>
+                    </div>
+                  )}
                 </div>
                 <div className={styles.cardFooter}>
                   <div className={styles.avatar}>{t.initials}</div>
-                  <span className={styles.role}>{t.role}</span>
+                  <div className={styles.authorInfo}>
+                    <span className={styles.authorName}>{t.name}</span>
+                    <span className={styles.role}>{t.role}</span>
+                  </div>
                 </div>
                 <div className={styles.cardAccent} />
               </div>

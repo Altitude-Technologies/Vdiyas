@@ -1,10 +1,13 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, state } = useLocation();
+  useEffect(() => {
+    if (state?.scrollToForm) return;
+    window.scrollTo(0, 0);
+  }, [pathname, state]);
   return null;
 }
 import Footer from "./components/Footer/Footer";

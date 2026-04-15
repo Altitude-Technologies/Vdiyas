@@ -134,15 +134,37 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
+  .brandColumn {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 480px) {
   .container {
     grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 0 16px;
+  }
+  .brandColumn {
+    grid-column: auto;
+  }
+  .footerLogo {
+    width: 60px;
+    height: 60px;
   }
   .bottom {
     flex-direction: column;
     gap: 8px;
     text-align: center;
+    padding: 16px;
+    font-size: 0.78rem;
+  }
+  .credit { font-size: 0.78rem; }
+}
+
+@media (max-width: 360px) {
+  .footerLogo {
+    width: 50px;
+    height: 50px;
   }
 }

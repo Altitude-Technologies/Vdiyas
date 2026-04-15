@@ -96,7 +96,7 @@ const Courses = () => {
       <section className={styles.sectionWhite}>
         <div className={styles.container}>
           <div className={styles.courseList}>
-            {courses.map((course, i) => (
+            {courses.map((course) => (
               <div
                 className={`${styles.courseCard} ${activeId === course.id ? styles.active : ""}`}
                 key={course.id}
@@ -122,7 +122,11 @@ const Courses = () => {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/book-appointment" className={styles.cardBtn}>
+                    <Link
+                      to="/book-appointment"
+                      state={{ scrollToForm: true, course: course.title }}
+                      className={styles.cardBtn}
+                    >
                       Enroll Now
                     </Link>
                   </div>
@@ -166,7 +170,13 @@ const Courses = () => {
             Take the first step toward authentic Vedic knowledge
           </p>
           <div data-aos="zoom-in" data-aos-delay="200">
-            <Link to="/book-appointment" className={styles.ctaBtn}>Book a Consultation</Link>
+            <Link
+              to="/book-appointment"
+              state={{ scrollToForm: true }}
+              className={styles.ctaBtn}
+            >
+              Book a Consultation
+            </Link>
           </div>
         </div>
       </section>

@@ -522,7 +522,27 @@
 }
 
 @media (max-width: 480px) {
+  .pageHeader { padding: 70px 16px 50px; }
   .pageHeader h1 { font-size: 1.8rem; }
-  .visualCard { max-width: 300px; }
+  .headerSub { font-size: 0.9rem; }
+  .visualCard { max-width: 100%; }
   .visualIcon { font-size: 2.5rem; }
+  .visualLabel { font-size: 0.68rem; }
+  .serviceTitle { font-size: 1.15rem; }
+  .serviceDesc { font-size: 0.88rem; }
+  .servicePoints li { font-size: 0.85rem; }
+  .serviceRow { padding: 32px 0; }
+  .sectionWhite { padding: 48px 16px; }
+  .methodSection { padding: 48px 16px; }
+  .methodCard { padding: 28px 20px; }
+  .methodNum { font-size: 2.2rem; }
+  .ctaCard { padding: 28px 20px; }
+  .ctaTitle { font-size: 1.2rem; }
+  .ctaBtn { padding: 13px 28px; font-size: 0.88rem; }
+}
+
+@media (max-width: 360px) {
+  .pageHeader h1 { font-size: 1.5rem; }
+  .serviceTitle { font-size: 1.05rem; }
+  .headingLight { font-size: 1.5rem; }
 }

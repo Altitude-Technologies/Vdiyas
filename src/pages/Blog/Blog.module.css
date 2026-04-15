@@ -396,7 +396,17 @@
 }
 
 @media (max-width: 480px) {
+  .pageHeader { padding: 70px 16px 50px; }
   .pageHeader h1 { font-size: 1.8rem; }
+  .heading { font-size: 1.5rem; }
+  .sectionWhite, .sectionLight { padding: 48px 16px; }
+  .ctaSection { padding: 48px 16px; }
+  .ctaTitle { font-size: 1.2rem; }
   .ctaInner { flex-direction: column; gap: 8px; }
   .ctaDivider { display: none; }
+  .articleCard { padding: 16px 18px; }
+}
+
+@media (max-width: 360px) {
+  .pageHeader h1 { font-size: 1.5rem; }
 }

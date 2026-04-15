@@ -178,65 +178,65 @@
    MOBILE
    ═══════════════════════════════════ */
 
+/* ── Mobile dropdown menu ── */
+.mobileMenu {
+  display: none;
+}
+
 @media (max-width: 900px) {
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: rgba(10, 4, 22, 0.97);
+    backdrop-filter: blur(20px);
+    padding: 20px 24px 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+  }
+
+  .mobileItem {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    padding: 12px 24px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+  }
+
+  .mobileItem:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobileItem.active {
+    color: #E8C76A;
+  }
   .container {
-    padding: 0 24px;
-    height: 74px;
-    justify-content: center;
+    padding: 0 20px;
+    height: 68px;
+    justify-content: space-between;
     position: relative;
   }
 
   .hamburger {
     display: flex;
-    position: absolute;
-    right: 24px;
   }
 
   .navLeft,
   .navRight {
-    display: none;
-    position: fixed;
-    top: 74px;
-    left: 0;
-    right: 0;
-    background: rgba(10, 4, 22, 0.97);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    padding: 24px 32px;
-    z-index: 10;
-    flex: unset;
-    justify-content: center;
-  }
-
-  .navLeft.open {
-    display: flex;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding-bottom: 12px;
-  }
-
-  .navRight.open {
-    display: flex;
-    top: auto;
-    position: static;
-    padding-top: 12px;
-  }
-
-  /* Wrap both lists in a single dropdown */
-  .navLeft.open ~ .navRight.open {
-    position: fixed;
-    top: auto;
-  }
-
-  .navItem {
-    font-size: 1.05rem;
-    padding: 12px 24px;
+    display: none !important;
   }
 
   .logoImg {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
   }
 
   .logoLink {
@@ -248,5 +248,33 @@
     padding: 12px 32px;
     font-size: 0.88rem;
     width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .logoImg {
+    width: 46px;
+    height: 46px;
+  }
+
+  .mobileMenu {
+    padding: 16px 16px 24px;
+    max-height: calc(100vh - 60px);
+  }
+
+  .mobileItem {
+    font-size: 0.92rem;
+    padding: 10px 18px;
+  }
+
+  .ctaBtn {
+    padding: 11px 24px;
+    font-size: 0.85rem;
   }
 }
