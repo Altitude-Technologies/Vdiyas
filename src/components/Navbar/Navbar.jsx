@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo.jpeg";
+import logo from "../../assets/images/logo_header.jpeg";
 import styles from "./Navbar.module.css";
 
 const leftLinks = [
