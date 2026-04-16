@@ -73,6 +73,17 @@ const testimonials = [
       "Astro Roopesh sir is an outstanding educator. He is of the opinion that the primary objective of astrology is to assist us in becoming better individuals. His guidance and remedies had a profoundly positive impact on my personal life. I am grateful for his mentorship. I wish him all the best.",
     ],
   },
+  {
+    title: "A Strong Foundation in Vedic Astrology",
+    initials: "AB",
+    name: "Anirban Bhanja",
+    role: "Ireland",
+    paragraphs: [
+      "It\u2019s a great privilege to share my heartfelt testimony for my first Guru of Vedic Astrology, Sri Roopesh. His vast knowledge, deep understanding, and patient teaching style have been truly inspiring. He taught us the fundamentals of astrology with great clarity and dedication.",
+      "What touched me most was his commitment \u2014 he never looked at the clock and always stayed beyond class hours to answer our questions. Each session was filled with rich examples that made learning easy, lively, and meaningful. After every class, I would eagerly look forward to the next one.",
+      "I feel deeply grateful for his guidance and for laying a strong foundation for my journey in Vedic Astrology.",
+    ],
+  },
 ];
 
 const outcomes = [
