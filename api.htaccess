@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────────────────
+# Vdiyas API — CORS .htaccess
+#
+# DO NOT deploy this with the React app. This file belongs on the
+# vdiyas.in server, inside the /api/ directory (next to email.php
+# and book-appointment.php), renamed to ".htaccess".
+#
+# Upload steps (Hostinger File Manager or FTP):
+#   1. Go to public_html/api/
+#   2. Upload this file
+#   3. Rename it from "api.htaccess" to ".htaccess"
+# ─────────────────────────────────────────────────────────────
+
+<IfModule mod_headers.c>
+  # Allow any origin to call the API.
+  # If you want to lock it down, replace * with your exact domain:
+  #   Header set Access-Control-Allow-Origin "https://vdiyas.in"
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+  Header set Access-Control-Max-Age "86400"
+</IfModule>
+
+# Handle the preflight OPTIONS request without invoking PHP.
+# Browsers send OPTIONS before any non-simple POST (e.g. JSON body).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^(.*)$ $1 [R=204,L]
+</IfModule>

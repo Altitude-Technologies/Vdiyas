@@ -64,7 +64,7 @@ const Footer = () => {
         <p className={styles.credit}>
           ❤️ Crafted with Innovation by{" "}
           <a href="https://altitudetechnologies.in" target="_blank" rel="noopener noreferrer" className={styles.creditLink}>
-            Altitude Technologies
+          Dextriva Tech Solutions
           </a>
           .
         </p>

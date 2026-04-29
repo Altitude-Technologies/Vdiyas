@@ -1,10 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
+
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); alert("Message sent successfully!"); };
+
+  const closePopup = () => setStatus({ type: "", message: "" });
+
+  useEffect(() => {
+    if (!status.message) return;
+    const onKey = (e) => { if (e.key === "Escape") closePopup(); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [status.message]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const res = await fetch("/api/email.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+          source: "Contact Form – vdiyas.in",
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        setStatus({ type: "success", message: data.message || "Message sent successfully!" });
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({
+          type: "error",
+          message: data.message || "Something went wrong. Please try again.",
+        });
+      }
+    } catch (err) {
+      setStatus({
+        type: "error",
+        message: "Network error. Please check your connection and try again.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <div className={styles.contact}>
@@ -40,7 +94,7 @@ const Contact = () => {
                   <div className={styles.infoIcon}>{"\u25C8"}</div>
                   <div>
                     <h4>Location</h4>
-                    <p>(Add Address)</p>
+                    <p>Bangalore, Karnataka, India</p>
                   </div>
                 </div>
                 <div className={styles.infoItem}>
@@ -88,17 +142,19 @@ const Contact = () => {
                   <label>Subject *</label>
                   <select name="subject" value={form.subject} onChange={handleChange} required>
                     <option value="">Select topic</option>
-                    <option value="courses">Courses</option>
-                    <option value="consultations">Consultations</option>
-                    <option value="workshops">Workshops</option>
-                    <option value="general">General guidance</option>
+                    <option value="Courses">Courses</option>
+                    <option value="Consultations">Consultations</option>
+                    <option value="Workshops">Workshops</option>
+                    <option value="General guidance">General guidance</option>
                   </select>
                 </div>
                 <div className={styles.field}>
                   <label>Message *</label>
                   <textarea name="message" value={form.message} onChange={handleChange} required rows={5} placeholder="Your message..." />
                 </div>
-                <button type="submit" className={styles.submitBtn}>Send Message</button>
+                <button type="submit" className={styles.submitBtn} disabled={submitting}>
+                  {submitting ? "Sending..." : "Send Message"}
+                </button>
               </form>
             </div>
           </div>
@@ -119,6 +175,33 @@ const Contact = () => {
           <div className={styles.closingLine} />
         </div>
       </section>
+
+      {status.message && (
+        <div
+          className={styles.modalOverlay}
+          onClick={closePopup}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className={`${styles.modalCard} ${
+              status.type === "success" ? styles.modalSuccess : styles.modalError
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.modalIcon}>
+              {status.type === "success" ? "✓" : "⚠"}
+            </div>
+            <h3 className={styles.modalTitle}>
+              {status.type === "success" ? "Message Sent" : "Something Went Wrong"}
+            </h3>
+            <p className={styles.modalText}>{status.message}</p>
+            <button type="button" className={styles.modalBtn} onClick={closePopup}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

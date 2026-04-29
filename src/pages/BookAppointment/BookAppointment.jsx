@@ -33,6 +33,8 @@ const BookAppointment = () => {
     course: location.state?.course || "",
     type: "", preferredDate: "", message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
 
   useEffect(() => {
     if (location.state?.scrollToForm && formRef.current) {
@@ -45,9 +47,83 @@ const BookAppointment = () => {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const closePopup = () => setStatus({ type: "", message: "" });
+
+  useEffect(() => {
+    if (!status.message) return;
+    const onKey = (e) => { if (e.key === "Escape") closePopup(); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [status.message]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Booking submitted successfully! We will contact you shortly.");
+    setSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    const messageWithCourse = form.course
+      ? `[Course: ${form.course}]\n${form.message}`.trim()
+      : form.message;
+
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      place_of_birth: form.pob,
+      date_of_birth: form.dob,
+      time_of_birth: form.tob,
+      consultation_type: form.type,
+      preferred_date: form.preferredDate,
+      message: messageWithCourse,
+    };
+
+    console.log("[Booking] Sending payload:", payload);
+
+    try {
+      const res = await fetch("/api/book-appointment.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const rawText = await res.text();
+      console.log("[Booking] HTTP status:", res.status);
+      console.log("[Booking] Raw response:", rawText);
+
+      let data = {};
+      try { data = JSON.parse(rawText); } catch { /* not JSON */ }
+
+      if (res.ok && data.success) {
+        setStatus({
+          type: "success",
+          message:
+            "Your appointment has been booked successfully. Our team will reach out to you shortly to confirm your consultation slot.",
+        });
+        setForm({
+          name: "", email: "", phone: "", dob: "", tob: "", pob: "",
+          course: "", type: "", preferredDate: "", message: "",
+        });
+      } else {
+        setStatus({
+          type: "error",
+          message:
+            data.message ||
+            `Server returned ${res.status}. ${rawText ? rawText.slice(0, 200) : "No response body."}`,
+        });
+      }
+    } catch (err) {
+      console.error("[Booking] Fetch failed:", err);
+      setStatus({
+        type: "error",
+        message: `Network error: ${err.message || "request failed"}`,
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -205,10 +281,10 @@ const BookAppointment = () => {
                     <label>Consultation Type *</label>
                     <select name="type" value={form.type} onChange={handleChange} required>
                       <option value="">Select type</option>
-                      <option value="general">General Reading</option>
-                      <option value="career">Career Guidance</option>
-                      <option value="relationship">Relationship</option>
-                      <option value="spiritual">Spiritual Growth</option>
+                      <option value="General Reading">General Reading</option>
+                      <option value="Career Guidance">Career Guidance</option>
+                      <option value="Relationship">Relationship</option>
+                      <option value="Spiritual Growth">Spiritual Growth</option>
                     </select>
                   </div>
                   <div className={styles.field}>
@@ -220,12 +296,41 @@ const BookAppointment = () => {
                   <label>Message</label>
                   <textarea name="message" value={form.message} onChange={handleChange} rows={4} placeholder="Anything specific you'd like guidance on..." />
                 </div>
-                <button type="submit" className={styles.submitBtn}>Book Consultation</button>
+                <button type="submit" className={styles.submitBtn} disabled={submitting}>
+                  {submitting ? "Submitting..." : "Book Consultation"}
+                </button>
               </form>
             </div>
           </div>
         </div>
       </section>
+
+      {status.message && (
+        <div
+          className={styles.modalOverlay}
+          onClick={closePopup}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className={`${styles.modalCard} ${
+              status.type === "success" ? styles.modalSuccess : styles.modalError
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={styles.modalIcon}>
+              {status.type === "success" ? "✓" : "⚠"}
+            </div>
+            <h3 className={styles.modalTitle}>
+              {status.type === "success" ? "Appointment Booked" : "Something Went Wrong"}
+            </h3>
+            <p className={styles.modalText}>{status.message}</p>
+            <button type="button" className={styles.modalBtn} onClick={closePopup}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
